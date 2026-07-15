@@ -2,21 +2,40 @@
 import { sleep } from 'k6';
 import { error_check } from '../check/check.js';
 import { scenario } from 'k6/execution';
-import { DownloadFile, GetProfile, PostProfile, PostProfile_2, PostProfile_3, UploadFile } from '../api/example.js';
+import { Authen } from '../api/Authen.js';
+import { Authen_CreateTxn } from '../api/Authen_CreateTxn.js';
+import { Authen_CreateTxn_CreateQR_TTB } from '../api/Authen_CreateTxn_CreateQR_TTB.js';
+import { Authen_CreateTxn_CreateQR_SCB } from '../api/Authen_CreateTxn_CreateQR_SCB.js';
+import { SCB_callback } from '../api/SCB_callback.js';
+import { Authen_CreateTxn_CreateQR_Callback_SCB } from '../api/Authen_CreateTxn_CreateQR_Callback_SCB.js';
+import { Authen_CreateTxn_CreateQR_Bay } from '../api/Authen_CreateTxn_CreateQR_Bay.js';
+import { BAY_callback } from '../api/BAY_callback.js';
+import { InquiryDate } from '../api/InquiryDate.js';
+import { InquiryTxn } from '../api/InquiryTxn.js';
+
 
 
 
 //============================================================================
 
 export default function () {    //เรียกใช้ API ใน export default function
-  response = GetProfile()
-  //response = PostProfile()
-  //response = PostProfile_2()
-  //response = PostProfile_3(scenario)
-  //response = DownloadFile()
-  //response = UploadFile()
-  //response = UploadFile_2()
+  /// TTB
+  response = Authen()
+  //response = Authen_CreateTxn(cid)
+  //response = Authen_CreateTxn_CreateQR_TTB(cid)
 
+  /// SCB
+  //response = Authen_CreateTxn_CreateQR_SCB(scenario)
+  //response = SCB_callback()
+  //response = Authen_CreateTxn_CreateQR_Callback_SCB()
+
+  /// BAY
+  //response = Authen_CreateTxn_CreateQR_Bay()
+  //response = BAY_callback()
+
+  /// InquiryDate
+  //response = InquiryDate()
+  //response = InquiryTxn()
 
   error_check(response);
   sleep(1)
