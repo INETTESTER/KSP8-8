@@ -74,7 +74,7 @@ export function Authen_CreateTxn_CreateQR_TTB(cid) {
     //console.log(response_qr.body);
     if (!response_qr || response_qr.error_code || (response_qr.status !== 200 && response_qr.status !== 201)) {
         console.log("QR Fail");
-        //console.log(response_qr.body);
+        console.log(response_qr.body);
         return response_qr
     }
     return response_qr

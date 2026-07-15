@@ -74,7 +74,7 @@ export function Authen_CreateTxn_CreateQR_SCB(cid) {
         headers,
     });
 
-    console.log(response_qr.body);
+    //console.log(response_qr.body);
 
     return response_qr;
 }

@@ -1,13 +1,19 @@
 import http from 'k6/http';
+import { SharedArray } from 'k6/data'; ///POST กรณี id ไม่ซ้ำ (ดึง id จากไฟล์ json)
+const data = new SharedArray('ref1', function () { ///POST กรณี id ไม่ซ้ำ (ดึง id จากไฟล์ json)
+    return JSON.parse(open('../file/id.json')).id; ///POST กรณี id ไม่ซ้ำ (ดึง id จากไฟล์ json)
+});
 
-export function TTB_callback() {
-    const url = 'https://loadtest-new-ops.inet.co.th/ttb/api/v1/payment/qr';
+export function TTB_callback(scenario) {
+    const ref1 = data[scenario.iterationInTest];
+    //console.log(ref1);
+    const url = 'https://loadtest-new-ops.inet.co.th/ttb/api/v1/payment/qr/callback';
 
     const payload = JSON.stringify({
         InstructionId: '20250610134300097126904315100733020',
         BillerNo: '010753700001716',
-        Ref1: 'P06100175139549',
-        Ref2: 'M00000496',
+        Ref1: '' + ref1,
+        Ref2: 'M24070300001',
         QRId: 'ZNETE251231000099697',
         PayerAccount: '0123456789',
         PayerName: 'นส.สุธาสิณี ผาซิว',
@@ -27,8 +33,8 @@ export function TTB_callback() {
 
     const response = http.post(url, payload, params);
 
-    console.log(`Status: ${response.status}`);
-    console.log(`Response: ${response.body}`);
+    // console.log(`Status: ${response.status}`);
+    // console.log(`Response: ${response.body}`);
 
     return response;
 }

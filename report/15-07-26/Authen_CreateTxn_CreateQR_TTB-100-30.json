@@ -1,0 +1,44 @@
+{
+    "metrics": {
+        "data_received": {
+            "count": 0,
+            "rate": 0
+        },
+        "iteration_duration": {
+            "avg": 1.4868899999999992,
+            "min": 0,
+            "med": 1.0006,
+            "max": 9.9922,
+            "p(90)": 3.00058,
+            "p(95)": 4.065109999999997
+        },
+        "iterations": {
+            "count": 120,
+            "rate": 639.578730809307
+        },
+        "checks": {
+            "passes": 0,
+            "fails": 120,
+            "value": 0
+        },
+        "data_sent": {
+            "count": 0,
+            "rate": 0
+        }
+    },
+    "root_group": {
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {},
+        "checks": {
+                "200 OK": {
+                    "name": "200 OK",
+                    "path": "::200 OK",
+                    "id": "e9654c443eff553da9e69eda7007924e",
+                    "passes": 0,
+                    "fails": 120
+                }
+            },
+        "name": ""
+    }
+}
