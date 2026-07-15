@@ -20,8 +20,8 @@ import { InquiryTxn } from '../api/InquiryTxn.js';
 
 export default function () {    //เรียกใช้ API ใน export default function
   /// TTB
-  response = Authen()
-  //response = Authen_CreateTxn(cid)
+  //response = Authen()
+  response = Authen_CreateTxn(cid)
   //response = Authen_CreateTxn_CreateQR_TTB(cid)
 
   /// SCB
