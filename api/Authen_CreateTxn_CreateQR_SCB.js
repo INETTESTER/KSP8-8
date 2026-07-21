@@ -73,9 +73,6 @@ export function Authen_CreateTxn_CreateQR_SCB(cid) {
     const response_qr = http.post(url_qr, payload_qr, {
         headers,
     });
-    if (!response_qr || response_qr.error_code || (response_qr.status !== 200 && response_qr.status !== 201)) {
-        console.log(response_qr.body);
-    }
 
     //console.log(response_qr.body);
 
