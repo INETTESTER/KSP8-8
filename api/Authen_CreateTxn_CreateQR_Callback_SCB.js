@@ -82,7 +82,7 @@ export function Authen_CreateTxn_CreateQR_Callback_SCB(cid, scenario) {
         headers,
     });
     if (!response_qr || response_qr.error_code || (response_qr.status !== 200 && response_qr.status !== 201)) {
-        console.log("QR Fail ");
+        console.log("QR Fail :" + response_qr.body);
         return response_qr
     }
     error_check(response_qr)
