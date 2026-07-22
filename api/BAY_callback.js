@@ -23,7 +23,7 @@ export function BAY_callback() {
         headers,
     });
 
-    console.log(response.body);
+    //console.log(response.body);
 
     return response;
 }

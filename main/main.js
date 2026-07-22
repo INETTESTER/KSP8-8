@@ -14,6 +14,7 @@ import { InquiryDate } from '../api/InquiryDate.js';
 import { InquiryTxn } from '../api/InquiryTxn.js';
 import { TTB_callback } from '../api/TTB_callback.js';
 import { Authen_CreateTxn_CreateQR_Callback_TTB } from '../api/Authen_CreateTxn_CreateQR_Callback_TTB.js';
+import { Authen_CreateTxn_CreateQR_Callback_Bay } from '../api/Authen_CreateTxn_CreateQR_Callback_Bay.js';
 
 
 
@@ -34,7 +35,8 @@ export default function () {    //เรียกใช้ API ใน export def
   //response = Authen_CreateTxn_CreateQR_Callback_SCB(cid, scenario)
 
   /// BAY
-  response = Authen_CreateTxn_CreateQR_Bay()
+  //response = Authen_CreateTxn_CreateQR_Bay()
+  response = Authen_CreateTxn_CreateQR_Callback_Bay(cid, scenario)
   //response = BAY_callback()
 
   /// InquiryDate
