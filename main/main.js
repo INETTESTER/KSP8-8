@@ -29,9 +29,9 @@ export default function () {    //เรียกใช้ API ใน export def
   //response = Authen_CreateTxn_CreateQR_Callback_TTB(cid, scenario)
 
   /// SCB
-  response = Authen_CreateTxn_CreateQR_SCB(scenario)
+  //response = Authen_CreateTxn_CreateQR_SCB(scenario)
   //response = SCB_callback()
-  //response = Authen_CreateTxn_CreateQR_Callback_SCB()
+  response = Authen_CreateTxn_CreateQR_Callback_SCB(cid, scenario)
 
   /// BAY
   //response = Authen_CreateTxn_CreateQR_Bay()

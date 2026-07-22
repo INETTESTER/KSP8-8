@@ -1,6 +1,14 @@
 import http from 'k6/http';
+import { SharedArray } from 'k6/data';
 import { error_check } from '../check/check.js';
-export function Authen_CreateTxn_CreateQR_Callback_SCB(cid) {
+
+
+// โหลด Ref1 จากไฟล์
+const data = new SharedArray('ref2', function () {
+    return JSON.parse(open('../file/payment_transaction_ref1.json')).ref1;
+});
+
+export function Authen_CreateTxn_CreateQR_Callback_SCB(cid, scenario) {
     //Step 1 : Authen
     const url = 'https://loadtest-new-ops.inet.co.th/oauth/api/v1/oauth-token';
     const orderId = `${__VU}${__ITER}` + cid;
@@ -80,12 +88,12 @@ export function Authen_CreateTxn_CreateQR_Callback_SCB(cid) {
     error_check(response_qr)
     //======================================================================================================
     //Step 4 : Callback
-
+    const ref1 = data[scenario.iterationInTest];
     const url_callback = 'https://loadtest-new-ops.inet.co.th/scb/api/v1/payment/qr-callback';
 
     const payload_callback = JSON.stringify({
         amount: '1',
-        billPaymentRef1: 'P240404000004',
+        billPaymentRef1: ref1,
         billPaymentRef2: 'M00000496',
         billPaymentRef3: 'NJBP240404000004',
         channelCode: 'PMH',
