@@ -27,7 +27,7 @@ export default function () {    //เรียกใช้ API ใน export def
   //response = Authen_CreateTxn(cid)
   //response = Authen_CreateTxn_CreateQR_TTB(cid)
   //response = TTB_callback(scenario)
-  //response = Authen_CreateTxn_CreateQR_Callback_TTB(cid, scenario)
+  response = Authen_CreateTxn_CreateQR_Callback_TTB(cid, scenario)
 
   /// SCB
   //response = Authen_CreateTxn_CreateQR_SCB(scenario)
@@ -36,7 +36,7 @@ export default function () {    //เรียกใช้ API ใน export def
 
   /// BAY
   //response = Authen_CreateTxn_CreateQR_Bay()
-  response = Authen_CreateTxn_CreateQR_Callback_Bay(cid, scenario)
+  //response = Authen_CreateTxn_CreateQR_Callback_Bay(cid, scenario)
   //response = BAY_callback()
 
   /// InquiryDate
